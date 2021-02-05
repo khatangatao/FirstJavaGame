@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable{
     protected boolean upPressed = false;
     protected boolean downPressed = false;
     private static int x = 0;
-    private static int y = 50;
+    private static int y = 0;
 
     public class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
@@ -48,6 +48,16 @@ public class Game extends Canvas implements Runnable{
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 rightPressed = false;
             }
+
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                upPressed = false;
+            }
+
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                downPressed = false;
+            }
+
+
         }
     }
 
@@ -150,7 +160,7 @@ public class Game extends Canvas implements Runnable{
             y++;
 
             if (y >= HEIGHT) {
-                y = HEIGHT - hero.getHeight();
+                y = HEIGHT - hero.getHeight() - 1;
             }
 
 
