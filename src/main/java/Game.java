@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 1L;
     private boolean running;
     public static int WIDTH = 400;
@@ -77,13 +77,13 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void run() {
-    // main game cycle
+        // main game cycle
         long lastTime = System.currentTimeMillis();
         long delta;
 
         init();
 
-        while(running) {
+        while (running) {
             delta = System.currentTimeMillis() - lastTime;
             lastTime = System.currentTimeMillis();
             update(delta);
@@ -134,7 +134,7 @@ public class Game extends Canvas implements Runnable{
 //        выбрать цвет
         g.setColor(Color.BLACK);
 //        заполнить прямоугольник
-        g.fillRect(0,0, getWidth(), getHeight());
+        g.fillRect(0, 0, getWidth(), getHeight());
         hero.draw(g, x, y);
         g.dispose();
 //        показать
@@ -142,13 +142,13 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void update(long delta) {
-        if (leftPressed == true) {
+        if (leftPressed) {
             x--;
             if (x < 0) {
                 x = 0;
             }
         }
-        if (rightPressed == true) {
+        if (rightPressed) {
             x++;
 
             if (x >= WIDTH - hero.getWidth()) {
@@ -156,17 +156,16 @@ public class Game extends Canvas implements Runnable{
             }
         }
 
-        if (downPressed == true) {
+        if (downPressed) {
             y++;
 
             if (y >= HEIGHT) {
                 y = HEIGHT - hero.getHeight() - 1;
             }
 
-
         }
 
-        if (upPressed == true) {
+        if (upPressed) {
             y--;
 
             if (y <= 0) {
@@ -174,8 +173,6 @@ public class Game extends Canvas implements Runnable{
             }
 
         }
-
-
 
     }
 }
