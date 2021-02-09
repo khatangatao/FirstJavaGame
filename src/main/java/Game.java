@@ -143,13 +143,13 @@ public class Game extends Canvas implements Runnable {
 
     public void update(long delta) {
         if (leftPressed) {
-            x--;
+            x = (int) (x - (20 * delta));
             if (x < 0) {
                 x = 0;
             }
         }
         if (rightPressed) {
-            x++;
+            x = (int) (x + (20 * delta));
 
             if (x >= WIDTH - hero.getWidth()) {
                 x = WIDTH - hero.getWidth();
@@ -157,7 +157,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         if (downPressed) {
-            y++;
+            y = (int) (y + (20 * delta));;
 
             if (y >= HEIGHT) {
                 y = HEIGHT - hero.getHeight() - 1;
@@ -166,7 +166,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         if (upPressed) {
-            y--;
+            y = (int) (y - (20 * delta));;
 
             if (y <= 0) {
                 y = 0;
